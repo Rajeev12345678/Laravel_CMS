@@ -11,18 +11,14 @@
 
     <!-- Scripts -->
     <!-- JavaScript Bundle with Popper -->
-<script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
-@yield('scripts')
 
+    @yield('css')
 
 </head>
 <body>
@@ -96,11 +92,20 @@
             <div class="col-md-4">
               <ul class="list-group">
                 <li class="list-group-item">
-                  <a href="">Posts</a>
+                  <a href="{{route('posts.index')}}">Posts</a>
                 </li>
+
                 <li class="list-group-item">
                   <a href="{{route('categories.index')}}">Categories</a>
                 </li>
+              </ul>
+
+              <ul class="list-group mt-5">
+
+                <li class="list-group-item">
+                  <a href="{{route('trashed-posts.index')}}">Trashed Posts</a>
+                </li>
+
               </ul>
             </div>
             <div class="col-md-8">
@@ -114,5 +119,7 @@
         </main>
     </div>
 
+<script src="{{ asset('js/app.js') }}"></script>
+@yield('scripts')
 </body>
 </html>
