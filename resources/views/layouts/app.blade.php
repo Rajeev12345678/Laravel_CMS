@@ -18,6 +18,11 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
+    <style>
+    .btn-info{
+      color: #fff;
+    }
+    </style>
     @yield('css')
 
 </head>

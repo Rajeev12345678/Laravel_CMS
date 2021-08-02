@@ -13,4 +13,11 @@ class Post extends Model
     protected $fillable = [
       'title', 'description', 'content', 'image', 'published_at'
     ];
+
+    public function deleteImage()
+    {
+      Post::delete($this->image);
+    }
+
+
 }

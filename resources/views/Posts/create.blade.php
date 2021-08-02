@@ -45,13 +45,16 @@
 <input type="file" class="form-control" name="image" id="image">
 </div>
 
-<div class="submit">
-  <button class="btn btn-success mt-2">
+
+
+<div class="form-group">
+  <button type="submit" class="btn btn-success mt-2">
     {{isset($post) ? 'Update Post': 'Create Post'}}
     </button>
 </div>
   </form>
 
+</div>
 </div>
 
 @endsection

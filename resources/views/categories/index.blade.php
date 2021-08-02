@@ -19,6 +19,10 @@
         <td>
         {{$category->name}}
         </td>
+        <!-- <td>
+          {{ $category->count() }} <!Here, it should have been $category->posts->count(), according to the tutorial, but get SQL error that way>
+        </td>
+      -->
       <td>
       <a href="{{route('categories.edit', $category->id)}}" class="btn btn-info btn-sm">Edit</a>
       <button class="btn btn-danger btn-sm" onclick="handleDelete({{$category->id}})">Delete</button>
@@ -34,7 +38,7 @@
       @method('DELETE')
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Delete Category</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

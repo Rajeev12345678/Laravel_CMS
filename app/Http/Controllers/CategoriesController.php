@@ -80,7 +80,7 @@ class CategoriesController extends Controller
           'name' => $request->name
       ]);
         $category->save();
-        session()->flash('success', 'Category Updated Successfully');
+        session()->flash('success', 'Category updated Successfully.');
         return redirect(route('categories.index'));
     }
 
