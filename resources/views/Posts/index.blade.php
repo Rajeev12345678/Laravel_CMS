@@ -28,7 +28,8 @@
           <td>
             {{$post->title}}
           </td>
-          
+
+
           @if($post->trashed())
             <td>
               <form action="{{route('restore-posts', $post->id)}}" method="POST">
