@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'App\Http\Controllers\WelcomeController@index')->name('welcome');
+Route::get('blog/posts/{post}', [PostsController::class, 'show'])->name('blog.show');
+Route::get('blog/categories/{category}', [PostsController::class, 'category'])->name('blog.category');
+Route::get('blog/tags/{tag}', [PostsController::class, 'tag'])->name('blog.tag');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
@@ -29,5 +30,8 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::middleware(['auth', 'admin'])->group(function() {
+  Route::get('users/profile', 'App\Http\Controllers\UsersController@edit')->name('users.edit-profile');
+  Route::put('users/profile', 'App\Http\Controllers\UsersController@update')->name('users.update-profile');
   Route::get('users', 'App\Http\Controllers\UsersController@index')->name('users.index');
+  Route::post('users/{user}/make-admin', 'App\Http\Controllers\UsersController@makeAdmin')->name('users.make-admin');
 });
